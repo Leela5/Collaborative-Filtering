@@ -1,5 +1,5 @@
->>> events = spark.read.options(header=True, inferSchema=True).csv('/user/capstone/events.csv')
->>> events.count()
+events = spark.read.options(header=True, inferSchema=True).csv('/user/capstone/events.csv')
+events.count()
 2756101
 
 events.show(3)
