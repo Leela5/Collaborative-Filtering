@@ -1,8 +1,8 @@
->>> events = spark.read.options(header=True, inferSchema=True).csv('/user/capstone/events.csv')
->>> events.count()
+events = spark.read.options(header=True, inferSchema=True).csv('/user/capstone/events.csv')
+events.count()
 2756101
->>> visitorGroupBy = events.groupBy('visitorid').count()
->>> visitorGroupBy.show(5)
+visitorGroupBy = events.groupBy('visitorid').count()
+visitorGroupBy.show(5)
 
 +---------+-----+
 |visitorid|count|
@@ -15,10 +15,10 @@
 +---------+-----+
 only showing top 5 rows
 
->>> visitorGroupBy.count()
+visitorGroupBy.count()
 1407580
->>> visitorGt1 = visitorGroupBy.filter(visitorGroupBy['count']>1)
->>> visitorGt1.count()
+visitorGt1 = visitorGroupBy.filter(visitorGroupBy['count']>1)
+visitorGt1.count()
 406020
 >>> eventsJoinVisitorGt1 = events.join(visitorGt1, ['visitorid'])
 >>> eventsJoinVisitorGt1.count()
@@ -43,10 +43,10 @@ eventsJoinVisitorGt1Distinct.count()
 
 # Assign values to event wise
 
->>> viewreplace = eventsJoinVisitorGt1Distinct.replace({'view':'1'})
->>> addtocartreplace = viewreplace.replace({'addtocart':'2'})
->>> final = addtocartreplace.replace({'transaction':'3'})
->>> final.show(5
+viewreplace = eventsJoinVisitorGt1Distinct.replace({'view':'1'})
+addtocartreplace = viewreplace.replace({'addtocart':'2'})
+final = addtocartreplace.replace({'transaction':'3'})
+final.show(5
 +---------+-------------+-----+------+-------------+-----+
 |visitorid|    timestamp|event|itemid|transactionid|count|
 +---------+-------------+-----+------+-------------+-----+
@@ -59,8 +59,8 @@ eventsJoinVisitorGt1Distinct.count()
 
 # Extract the columns for MatrixFactorization
 
->>> data = final['visitorid','itemid','event']
->>> data.show(5)
+data = final['visitorid','itemid','event']
+data.show(5)
 +---------+------+-----+
 |visitorid|itemid|event|
 +---------+------+-----+
