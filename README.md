@@ -21,7 +21,8 @@ Step_3: Model selection and hyper parameter tuning.
 
 Model selection or model evaluation is used to find the optimal parameters. Spark provides the number of algorithms to tune the model evaluation for either individual algorithms or the entire model building pipeline.  Here, we used CrossValidator and TrainValidationSplit classes.
 
-
+Step_4: Model Evaluation by using Ranking System
+The main goal is to measure the effectiveness of recommendations
 
 
 
