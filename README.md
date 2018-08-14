@@ -1,4 +1,4 @@
-### Collaborative-Filtering on implicit Ecommerce' users' behavirol data 
+### Collaborative-Filtering on implicit Ecommerce' users' behavior data 
 It has two files like events and item_properties.
 Made four diffrent MatrixFactorizationModels based on data availability.
 Applied ALS algorithms on different matrixFactorizationModels to find Top N predictions for users and products.
